@@ -12,12 +12,16 @@ sealed class CostModel(
 
 /**
  * Simple cost, one buying something
+ * @property title name of cost
+ * @property sum   total sum of cost
  */
 data class SimpleCost(override val title: String, override val sum: Int) : CostModel(title, sum)
 
 /**
  * Cost model for period in curtain days number, for example, buying food, or for iterable costs
  *
+ * @property title name of cost
+ * @property sum   total sum of cost
  * @property number number of days or iteration
  */
 data class NumberCost(override val title: String, override val sum: Int, val number: Int) : CostModel(title, sum)
