@@ -17,11 +17,13 @@ data class BudgetDomainModel(
  * Budget model
  *
  * @property title  name of budget
- * @property sum    costs for [period]
+ * @property costs  costs and payments for [period]
  * @property period time of budget
  */
 data class Budget(
     val title: String,
     val costs: List<CostModel>,
     val period: BudgetPeriod
-)
+) {
+    val costsSum = costs.sumOf { it.sum }
+}

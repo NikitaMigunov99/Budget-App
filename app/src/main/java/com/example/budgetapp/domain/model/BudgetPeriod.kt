@@ -7,11 +7,11 @@ import java.time.Period
  * It describes budget period
  *
  * @property startDate start date of budget
- * @property endDate start date of budget
+ * @property endDate   start date of budget
  */
 data class BudgetPeriod internal constructor(
-    private val startDate: LocalDate,
-    private val endDate: LocalDate
+    val startDate: LocalDate,
+    val endDate: LocalDate
 ) {
 
     fun periodDaysNumber() = Period.between(startDate, endDate).days
