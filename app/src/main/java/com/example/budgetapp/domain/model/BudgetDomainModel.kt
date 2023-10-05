@@ -25,5 +25,8 @@ data class Budget(
     val costs: List<CostModel>,
     val period: BudgetPeriod
 ) {
+    /**
+     * Total sum of budget
+     */
     val costsSum = costs.sumOf { it.sum }
 }

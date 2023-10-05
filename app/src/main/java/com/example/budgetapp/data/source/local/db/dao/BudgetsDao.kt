@@ -1,11 +1,16 @@
 package com.example.budgetapp.data.source.local.db.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.budgetapp.data.source.local.db.entity.BudgetEntity
 
+/**
+ * DAO for work with budgets
+ */
+@Dao
 interface BudgetsDao {
 
     /**
@@ -18,7 +23,7 @@ interface BudgetsDao {
      * Update existing budget
      */
     @Update
-    fun updateWidgetInfo(budget: BudgetEntity)
+    fun updateBudgetInfo(budget: BudgetEntity)
 
     /**
      * Get budget with id equals [budgetId]
@@ -30,7 +35,7 @@ interface BudgetsDao {
      * Get budget with id equals [budgetId]
      */
     @Query(
-        "SELECT FROM " + BudgetEntity.TABLE_NAME +
+        "SELECT * FROM " + BudgetEntity.TABLE_NAME +
             " WHERE " + BudgetEntity.COLUMN_ID + "=:budgetId"
     )
     fun getById(budgetId: Int): BudgetEntity
